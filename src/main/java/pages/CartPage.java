@@ -6,14 +6,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import steps.BaseSteps;
 
+import java.util.List;
+
 /**
  * Created by Maria on 26.10.2017.
  */
 public class CartPage extends BasePage{
 
 
-	@FindBy(id = "shopping-cart-table")
-	WebElement shoppingCartTable;
+	@FindBy(xpath = "//table[@id = 'shopping-cart-table']//*[text()]/ancestor::tr//td[@class='product-name']/a[text()]")
+	List<WebElement> shoppingCartTable;
 
 	@FindBy(xpath = "//*[text()='Итого:']/ancestor::tr[@class='order-total']//span[@id]")
 	WebElement totalAmount;
@@ -23,16 +25,13 @@ public class CartPage extends BasePage{
 	}
 
 
-	public Integer getSizeShoppingTable(){
-		 return shoppingCartTable.findElements(By.xpath(".//tr[@class='cart-item']")).size();
-	}
-
-	public String getProductPrice(String productName){
-		return shoppingCartTable.findElement(By.xpath(".//*[text()='"+productName+"']/ancestor::tr//span[@class='cart-price']")).getText();
-	}
-
 	public boolean productExist(String productName){
-		return isElementPresent(By.xpath(".//*[contains(text(),'"+productName+"')]/ancestor::tr//span[@class='cart-price']"));
+		for (WebElement item : shoppingCartTable){
+			if (isElementPresent(item) && item.getText().equalsIgnoreCase(productName)){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public String getTotalAmount(){

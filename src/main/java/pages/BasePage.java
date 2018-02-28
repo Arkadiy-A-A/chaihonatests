@@ -30,6 +30,19 @@ public class BasePage {
         }
     }
 
+    public boolean isElementPresent(WebElement element) {
+        try {
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+            return element.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        finally {
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        }
+    }
+
+
     public void fillField(WebElement element, String value)  {
             element.clear();
             element.sendKeys(value);
