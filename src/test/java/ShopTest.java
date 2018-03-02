@@ -19,9 +19,11 @@ public class ShopTest extends BaseSteps {
 		CartSteps cartSteps = new CartSteps();
 
 		menuSteps.stepSelectMenuItem("Меню доставки");
-		menuSteps.stepSelectMenuCategory("Закуски");
-
+		menuSteps.stepSelectMenuCategory("Выпечка");
 		catalogSteps.stepAddProduct("Пичча нон с сыром");
+
+		menuSteps.stepSelectMenuItem("Меню доставки");
+		menuSteps.stepSelectMenuCategory("Бургеры и Шаурма");
 		catalogSteps.stepAddProduct("Шаурма из телятины");
 
 		menuSteps.stepSelectMenuItem("Меню доставки");
