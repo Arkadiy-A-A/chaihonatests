@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <aspectj.version>1.8.10</aspectj.version>
-        <allure.version>1.5.2</allure.version>
     </properties>
     <dependencies>
         <dependency>

@@ -25,9 +25,6 @@ public class MenuPage extends BasePage{
 		@FindBy(xpath = "//a[@title='Перейти в корзину']")
 		public WebElement goToCart;
 
-	public MenuPage(){
-		PageFactory.initElements(driver, this);
-	}
 
 		public void selectMainMenuItem(String menuItem){
 				for(WebElement item : mainMenuItem){

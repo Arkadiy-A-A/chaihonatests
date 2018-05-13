@@ -17,9 +17,6 @@ public class CatalogPage extends BasePage{
 		@FindBy(xpath = "//ul[@class='products-grid']//*[@title]/ancestor::li")
 		List<WebElement> productCollection;
 
-	public CatalogPage(){
-		PageFactory.initElements(driver, this);
-	}
 
 		public void addProduct(String productName){
 			String price = getProduct(productName).findElement(By.xpath(".//span[@class='price']")).getText().replaceAll("\\D","");

@@ -20,11 +20,6 @@ public class CartPage extends BasePage{
 	@FindBy(xpath = "//*[text()='Итого:']/ancestor::tr[@class='order-total']//span[@id]")
 	WebElement totalAmount;
 
-	public CartPage(){
-		PageFactory.initElements(driver, this);
-	}
-
-
 	public boolean productExist(String productName){
 		for (WebElement item : shoppingCartTable){
 			if (isElementPresent(item) && item.getText().equalsIgnoreCase(productName)){
