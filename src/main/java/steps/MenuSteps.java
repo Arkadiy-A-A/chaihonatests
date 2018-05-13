@@ -2,7 +2,7 @@ package steps;
 
 
 import pages.MenuPage;
-import ru.yandex.qatools.allure.annotations.Step;
+import io.qameta.allure.Step;
 
 /**
  * Created by Maria on 26.10.2017.

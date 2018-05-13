@@ -1,6 +1,7 @@
 package steps;
 
-import ru.yandex.qatools.allure.annotations.Step;
+
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import pages.CartPage;
 

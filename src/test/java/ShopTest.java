@@ -1,6 +1,6 @@
 
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import ru.yandex.qatools.allure.annotations.Title;
 import steps.BaseSteps;
 import steps.CartSteps;
 import steps.CatalogSteps;
@@ -12,7 +12,7 @@ import steps.MenuSteps;
 public class ShopTest extends BaseSteps {
 
 	@Test
-	@Title("Заказ в чайхоне")
+	@DisplayName("Заказ в чайхоне")
 	public void Test(){
 		MenuSteps menuSteps = new MenuSteps();
 		CatalogSteps catalogSteps = new CatalogSteps();
@@ -24,7 +24,7 @@ public class ShopTest extends BaseSteps {
 
 		menuSteps.stepSelectMenuItem("Меню доставки");
 		menuSteps.stepSelectMenuCategory("Бургеры и Шаурма");
-		catalogSteps.stepAddProduct("Шаурма из телятины");
+		catalogSteps.stepAddProduct("Шаурма с курицей");
 
 		menuSteps.stepSelectMenuItem("Меню доставки");
 		menuSteps.stepSelectMenuCategory("Плов");
@@ -34,10 +34,10 @@ public class ShopTest extends BaseSteps {
 		menuSteps.stepGoToCart();
 
 		cartSteps.stepCheckProduct("Пичча нон с сыром");
-		cartSteps.stepCheckProduct("Шаурма из телятины");
+		cartSteps.stepCheckProduct("Шаурма с курицей");
 		cartSteps.stepCheckProduct("Плов Чайханский");
 
-		Integer expectedAmount = Integer.parseInt(getVariable("Пичча нон с сыром")) + Integer.parseInt(getVariable("Шаурма из телятины")) +
+		Integer expectedAmount = Integer.parseInt(getVariable("Пичча нон с сыром")) + Integer.parseInt(getVariable("Шаурма с курицей")) +
 				Integer.parseInt(getVariable("Плов Чайханский"));
 
 		cartSteps.stepCheckTotalAmount(expectedAmount.toString());
