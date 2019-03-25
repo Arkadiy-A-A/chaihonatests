@@ -17,7 +17,7 @@ public class CartPage extends BasePage{
 	@FindBy(xpath = "//table[@id = 'shopping-cart-table']//*[text()]/ancestor::tr//td[@class='product-name']/a[text()]")
 	List<WebElement> shoppingCartTable;
 
-	@FindBy(xpath = "//*[text()='Итого:']/ancestor::tr[@class='order-total']//span[@id]")
+	@FindBy(xpath = "//*[text()='Итого:']/ancestor::tr//td//span[@id]")
 	WebElement totalAmount;
 
 	public boolean productExist(String productName){
