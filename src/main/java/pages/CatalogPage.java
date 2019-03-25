@@ -19,9 +19,11 @@ public class CatalogPage extends BasePage{
 
 
 		public void addProduct(String productName){
-			String price = getProduct(productName).findElement(By.xpath(".//span[@class='price']")).getText().replaceAll("\\D","");
+			String price = getProduct(productName)
+					.findElement(By.xpath(".//span[@class='price']")).getText().replaceAll("\\D","");
 			BaseSteps.setVariables(productName, price);
-			getProduct(productName).findElement(By.xpath(".//button[@title='Заказать']")).click();
+			getProduct(productName)
+					.findElement(By.xpath(".//button[@title='Заказать']")).click();
 		}
 
 		public WebElement getProduct(String productName){

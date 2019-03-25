@@ -27,7 +27,7 @@ public class MenuPage extends BasePage{
 
 
 		public void selectMainMenuItem(String menuItem){
-				for(WebElement item : mainMenuItem){
+			for (WebElement item : mainMenuItem) {
 						if (item.getText().equalsIgnoreCase(menuItem)){
 							new WebDriverWait(driver, 10)
 									.until(ExpectedConditions.elementToBeClickable(item)).click();
@@ -38,8 +38,14 @@ public class MenuPage extends BasePage{
 		}
 
 		public void selectSubMenuItem(String menuItem){
-			Optional<WebElement> findItem = subMenuItem.stream().filter(item -> item.getText().equalsIgnoreCase(menuItem)).findFirst();
-			if (findItem.isPresent()) findItem.get().click();
-			else Assert.fail("Не найден пункт меню - " + menuItem);
+			for(WebElement item : subMenuItem){
+				if (item.getText().equalsIgnoreCase(menuItem)){
+					new WebDriverWait(driver, 10)
+							.until(ExpectedConditions.elementToBeClickable(item)).click();
+					return;
+				}
+			}
+			Assert.fail("Не найден пункт меню - " + menuItem);
 		}
+
 }
