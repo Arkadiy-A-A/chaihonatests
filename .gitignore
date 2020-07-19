@@ -1,0 +1,4 @@
+# Folder ignoring
+target
+.allure
+.idea

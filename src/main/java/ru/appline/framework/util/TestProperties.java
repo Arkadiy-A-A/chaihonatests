@@ -1,4 +1,4 @@
-package util;
+package ru.appline.framework.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,16 +10,16 @@ public class TestProperties {
 
     private static TestProperties INSTANCE = null;
 
-    private TestProperties(){
+    private TestProperties() {
         try {
-            properties.load(new FileInputStream(new File("./application.properties")));
+            properties.load(new FileInputStream(new File("src/main/resources/application.properties")));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static TestProperties getInstance() {
-        if (INSTANCE == null){
+        if (INSTANCE == null) {
             INSTANCE = new TestProperties();
         }
         return INSTANCE;
